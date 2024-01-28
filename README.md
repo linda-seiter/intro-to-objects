@@ -2,7 +2,7 @@
 theme: gaia
 class:
  - invert
-headingDivider: 2 
+headingDivider: 2
 paginate: true
 -->
 
@@ -12,17 +12,19 @@ _class:
  - invert
 -->
 
-# Deploy Marp to GitHub Pages
+# Creating new classes and objects
 
 Presentations to Webpages: Instantly!
 
-## What?
+## Objects
 
-[Marp](https://marp.app/) lets you create HTML slides from markdown (like this!).
+[Marp](https://marp.app/) lets you create HTML slides from markdown (like
+this!).
 
-This presentation is both a [website](https://alexsci.com/marp-to-pages) and a [README.md](https://github.com/ralexander-phi/marp-to-pages/blob/main/README.md).
+This presentation is both a [website](https://alexsci.com/marp-to-pages) and a
+[README.md](https://github.com/ralexander-phi/marp-to-pages/blob/main/README.md).
 
-## Why?
+## Defining a class
 
 Treat your presentation the same way you treat code.
 
@@ -35,13 +37,15 @@ Treat your presentation the same way you treat code.
 
 Want to create your own?
 
-First, create a new repo [from the template repo](https://github.com/ralexander-phi/marp-to-pages).
+First, create a new repo
+[from the template repo](https://github.com/ralexander-phi/marp-to-pages).
 
 ![](img/use-template.png)
 
 ## Configure GitHub Pages
 
-Open your new repo and [setup publishing](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).
+Open your new repo and
+[setup publishing](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).
 
 You'll typically use `gh-pages` as the deploy branch.
 
@@ -57,7 +61,8 @@ You should now see the generated files in the `gh-pages` branch.
 
 Open your deployed webpage to see the content.
 
-Out of the box you should see `README.md` as `/index.html` and `/README.pdf`. Slides under `docs/` are also converted.
+Out of the box you should see `README.md` as `/index.html` and `/README.pdf`.
+Slides under `docs/` are also converted.
 
 ## Running locally
 
@@ -109,21 +114,25 @@ This is a good time to learn more about Marp. Here's some resources:
 
 Known sites using this action are:
 
-- [University of Illinois at Urbana-Champaign's CS 199 Even More Practice](https://cs199emp.netlify.app/) [(code)](https://github.com/harsh183/emp-125)
-- [Exploring agent based models](https://roiarthurb.github.io/Talk-UMMISCO_06-07-2020/) [(code)](https://github.com/RoiArthurB/Talk-UMMISCO_06-07-2020)
+- [University of Illinois at Urbana-Champaign's CS 199 Even More Practice](https://cs199emp.netlify.app/)
+  [(code)](https://github.com/harsh183/emp-125)
+- [Exploring agent based models](https://roiarthurb.github.io/Talk-UMMISCO_06-07-2020/)
+  [(code)](https://github.com/RoiArthurB/Talk-UMMISCO_06-07-2020)
 
-Send a [pull request](https://github.com/ralexander-phi/marp-to-pages) to get your site added.
+Send a [pull request](https://github.com/ralexander-phi/marp-to-pages) to get
+your site added.
 
 ## Publish your slides
 
-When you are ready to share your presentation, commit or merge to `main` and your content on GitHub Pages will automatically update.
+When you are ready to share your presentation, commit or merge to `main` and
+your content on GitHub Pages will automatically update.
 
 # 🎉
+
 <!--
 _class:
  - lead
  - invert
 -->
+
 ### Hooray!
-
-
