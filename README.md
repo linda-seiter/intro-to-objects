@@ -12,26 +12,51 @@ _class:
  - invert
 -->
 
-# Creating new classes and objects
+# Introducing Reference Data Types and Dynamic Object Allocation
 
-Presentations to Webpages: Instantly!
+Using visual debuggers to avoid common object misconceptions
 
-## Objects
+## Common object misconceptions
 
-[Marp](https://marp.app/) lets you create HTML slides from markdown (like
-this!).
+## Review: Java Data Types
 
-This presentation is both a [website](https://alexsci.com/marp-to-pages) and a
-[README.md](https://github.com/ralexander-phi/marp-to-pages/blob/main/README.md).
+- Primitive data types are predefined in Java.
+- Reference data types can be defined by the programmer.
 
-## Defining a class
+| Java Data Types      |                                                      |                                     |
+| -------------------- | ---------------------------------------------------- | ----------------------------------- |
+| Primitive Data Types | byte, short, int, long, float, double, boolean, char | Variable stores a primitive value   |
+| Reference Data Types | String, ArrayList, Scanner, ...                      | Variable stores an object reference |
 
-Treat your presentation the same way you treat code.
+## Reference Data Types
 
-- Use git to track changes
-- Pull requests to collaborate
-- Deploy automatically
-- See a problem? Open an issue!
+Java has several types of **reference data types**.
+
+## Review: What is an object?
+
+TODO: real world objects vs software objects. .....
+https://docs.oracle.com/javase/tutorial/java/concepts/object.html
+
+All objects have **state** and **behavior**.
+
+- State encapsulates the relevant properties (data) about an object.
+- Behavior is the set of operations that access and modify the object state.
+
+| Object       | State                                   | Behavior                                        |
+| ------------ | --------------------------------------- | ----------------------------------------------- |
+| Dog          | name <br> breed <br> is wagging tail    | eat treat <br> fetch toy <br> bark              |
+| Mobile Phone | brand <br> model <br> is on <br> volume | toggle on/off <br> adjust volume <br> send text |
+| Appointment  | date <br> time <br> participants        | schedule <br> cancel                            |
+
+## What is a class?
+
+Template for describing similar objects.
+
+define state (fields) and behavior (methods).
+
+## Dog Visualization
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=public%20class%20Fish%20%7B%0A%0A%20%20%20%20//Field%20declarations%0A%20%20%20%20String%20species%3B%0A%20%20%20%20int%20age%3B%0A%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%0A%20%20%20%20%20%20%20%20//%20Declare,%20instantiate,%20and%20initialize%202%20Fish%20objects%0A%20%20%20%20%20%20%20%20//%20Each%20variable%20stores%20an%20object%20reference%0A%20%20%20%20%20%20%20%20Fish%20bubbles%20%3D%20new%20Fish%28%29%3B%0A%20%20%20%20%20%20%20%20Fish%20jaws%20%3D%20new%20Fish%28%29%3B%0A%0A%20%20%20%20%20%20%20%20//Print%20default%20string%20representation%0A%20%20%20%20%20%20%20%20System.out.println%28bubbles%29%3B%0A%20%20%20%20%20%20%20%20System.out.println%28jaws%29%3B%0A%0A%20%20%20%20%20%20%20%20//Print%20initial%20field%20values%0A%20%20%20%20%20%20%20%20//Use%20dot%20notation%20objectReference.fieldName%20to%20access%20an%20object%20field%0A%20%20%20%20%20%20%20%20System.out.println%28%22Initial%20default%20state%3A%22%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22bubbles%3A%20%25s%20%25d%25n%22,%20bubbles.species,%20bubbles.age%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22jaws%3A%20%25s%20%25d%25n%22,%20jaws.species,%20jaws.age%29%3B%0A%0A%20%20%20%20%20%20%20%20//Assign%20new%20values%20to%20the%20object%20fields%0A%20%20%20%20%20%20%20%20bubbles.species%20%3D%20%22Goldfish%22%3B%0A%20%20%20%20%20%20%20%20bubbles.age%20%3D%2015%3B%0A%20%20%20%20%20%20%20%20jaws.species%3D%20%22Red%20Tail%20Shark%22%3B%0A%20%20%20%20%20%20%20%20jaws.age%20%3D%208%3B%0A%0A%20%20%20%20%20%20%20%20//Print%20updated%20field%20values%0A%20%20%20%20%20%20%20%20System.out.println%28%22Updated%20state%3A%22%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22bubbles%3A%20%25s%20%25d%25n%22,%20bubbles.species,%20bubbles.age%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22jaws%3A%20%25s%20%25d%25n%22,%20jaws.species,%20jaws.age%29%3B%0A%20%20%20%20%7D%0A%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=true&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 ## Setup
 
