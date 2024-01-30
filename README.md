@@ -1,15 +1,6 @@
 <!--
-theme: gaia
-class:
- - invert
-headingDivider: 2
+theme: default
 paginate: true
--->
-
-<!--
-_class:
- - lead
- - invert
 -->
 
 ## Some background before I start the lesson...
@@ -24,16 +15,12 @@ _class:
   - Initial emphasize on object state and object references
   - Use visual debuggers to clarify object concepts, avoid common misconceptions
 
----
-
 ## Today's Lesson - Defining a new Java class
 
 We've seen how to use existing Java core and utility classes (String, ArrayList,
 etc.) to solve some interesting problems.
 
 Today we'll see how to define a **new** class to model some real world objects.
-
----
 
 ## Review: What is an object?
 
@@ -45,8 +32,6 @@ state)
 | Mobile Phone | brand <br> model <br> is on <br> volume | toggle on/off <br> adjust volume <br> send text |
 | Zoom meeting | date <br> time <br> link                | schedule <br> cancel<br>start<br>end            |
 | ArrayList    | items in list                           | add item<br>delete item<br>get list size        |
-
----
 
 ## Review: Java Data Types
 
