@@ -12,152 +12,294 @@ _class:
  - invert
 -->
 
-# Introducing Reference Data Types and Dynamic Object Allocation
+# Introducing object state and references
 
-Using visual debuggers to avoid common object misconceptions
+Common object misconceptions:
 
-## Common object misconceptions
+- Variable/Class conflation
+- Class/Object conflation
+- Object/Record conflation
+- ...
 
-## Review: Java Data Types
+My teaching Approach:
 
-- Primitive data types are predefined in Java.
-- Reference data types can be defined by the programmer.
+- Initial lessons use existing classes (String, Arraylist, Random,
+  Swing/JavaFX/Graphics)
+  - practice reading APIs
+  - practice instantiating objects
+  - practice invoking static and instance methods
+- Subsequent lessons on creating new classes
+  - Delay introduction of constructors and methods
+  - Initial emphasize on object state and object references
+  - Use visual debuggers to clarify object concepts
 
-| Java Data Types      |                                                      |                                     |
-| -------------------- | ---------------------------------------------------- | ----------------------------------- |
-| Primitive Data Types | byte, short, int, long, float, double, boolean, char | Variable stores a primitive value   |
-| Reference Data Types | String, ArrayList, Scanner, ...                      | Variable stores an object reference |
+## Today's Lesson
 
-## Reference Data Types
+We've seen how to use existing Java core and utility classes (String, ArrayList,
+etc.) to solve some interesting problems.
 
-Java has several types of **reference data types**.
+Today we'll see how to define a **new** class to model some real world objects.
 
 ## Review: What is an object?
 
-TODO: real world objects vs software objects. .....
-https://docs.oracle.com/javase/tutorial/java/concepts/object.html
+Objects have state and behavior.
 
-All objects have **state** and **behavior**.
-
-- State encapsulates the relevant properties (data) about an object.
-- Behavior is the set of operations that access and modify the object state.
+- State represents relevant properties (data).
+- Behavior is the operations that access and modify object state.
 
 | Object       | State                                   | Behavior                                        |
 | ------------ | --------------------------------------- | ----------------------------------------------- |
-| Dog          | name <br> breed <br> is wagging tail    | eat treat <br> fetch toy <br> bark              |
 | Mobile Phone | brand <br> model <br> is on <br> volume | toggle on/off <br> adjust volume <br> send text |
-| Appointment  | date <br> time <br> participants        | schedule <br> cancel                            |
+| Zoom meeting | date <br> time <br> link                | schedule <br> cancel<br>start<br>end            |
 
-## What is a class?
+## Review: Java Data Types
 
-Template for describing similar objects.
+- Primitive types are predefined in Java.
+- Reference types can be defined by the programmer.
 
-define state (fields) and behavior (methods).
+| Java Data Types                 |                                                      |                                     |
+| ------------------------------- | ---------------------------------------------------- | ----------------------------------- |
+| Primitive Types                 | byte, short, int, long, float, double, boolean, char | Variable stores a primitive value   |
+| Reference Types (non-primitive) | String, ArrayList, Random, JButton, JFrame, ...      | Variable stores an object reference |
 
-## Dog Visualization
+## Review: Storing `Random` Coin Flips in an `ArrayList`
 
-<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=public%20class%20Fish%20%7B%0A%0A%20%20%20%20//Field%20declarations%0A%20%20%20%20String%20species%3B%0A%20%20%20%20int%20age%3B%0A%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%0A%20%20%20%20%20%20%20%20//%20Declare,%20instantiate,%20and%20initialize%202%20Fish%20objects%0A%20%20%20%20%20%20%20%20//%20Each%20variable%20stores%20an%20object%20reference%0A%20%20%20%20%20%20%20%20Fish%20bubbles%20%3D%20new%20Fish%28%29%3B%0A%20%20%20%20%20%20%20%20Fish%20jaws%20%3D%20new%20Fish%28%29%3B%0A%0A%20%20%20%20%20%20%20%20//Print%20default%20string%20representation%0A%20%20%20%20%20%20%20%20System.out.println%28bubbles%29%3B%0A%20%20%20%20%20%20%20%20System.out.println%28jaws%29%3B%0A%0A%20%20%20%20%20%20%20%20//Print%20initial%20field%20values%0A%20%20%20%20%20%20%20%20//Use%20dot%20notation%20objectReference.fieldName%20to%20access%20an%20object%20field%0A%20%20%20%20%20%20%20%20System.out.println%28%22Initial%20default%20state%3A%22%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22bubbles%3A%20%25s%20%25d%25n%22,%20bubbles.species,%20bubbles.age%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22jaws%3A%20%25s%20%25d%25n%22,%20jaws.species,%20jaws.age%29%3B%0A%0A%20%20%20%20%20%20%20%20//Assign%20new%20values%20to%20the%20object%20fields%0A%20%20%20%20%20%20%20%20bubbles.species%20%3D%20%22Goldfish%22%3B%0A%20%20%20%20%20%20%20%20bubbles.age%20%3D%2015%3B%0A%20%20%20%20%20%20%20%20jaws.species%3D%20%22Red%20Tail%20Shark%22%3B%0A%20%20%20%20%20%20%20%20jaws.age%20%3D%208%3B%0A%0A%20%20%20%20%20%20%20%20//Print%20updated%20field%20values%0A%20%20%20%20%20%20%20%20System.out.println%28%22Updated%20state%3A%22%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22bubbles%3A%20%25s%20%25d%25n%22,%20bubbles.species,%20bubbles.age%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22jaws%3A%20%25s%20%25d%25n%22,%20jaws.species,%20jaws.age%29%3B%0A%20%20%20%20%7D%0A%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=true&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
-
-## Setup
-
-Want to create your own?
-
-First, create a new repo
-[from the template repo](https://github.com/ralexander-phi/marp-to-pages).
-
-![](img/use-template.png)
-
-## Configure GitHub Pages
-
-Open your new repo and
-[setup publishing](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).
-
-You'll typically use `gh-pages` as the deploy branch.
-
-## Review Build
-
-Click on Actions tab and see if the build succeeded (it may take some time).
-
-![](img/click-actions.png)
-
-You should now see the generated files in the `gh-pages` branch.
-
-## View webpage
-
-Open your deployed webpage to see the content.
-
-Out of the box you should see `README.md` as `/index.html` and `/README.pdf`.
-Slides under `docs/` are also converted.
-
-## Running locally
-
-Locally you'll run commands like:
-
-```
-$ marp README.md -o build/README.pdf
+```java
+public static void main(String[] args) {
+  ArrayList<String> coinFlips = new ArrayList<String>();
+  Random rand = new Random();
+  int numHeads = 0;
+  boolean heads = rand.nextBoolean();
+  while (numHeads < 3) {
+      if (heads) {
+          numHeads++;
+          coinFlips.add("Heads");
+      }
+      else {
+          coinFlips.add("Tails");
+      }
+      heads = rand.nextBoolean();
+  }
+  System.out.println("Total coin flips:" + coinFlips.size());
+  System.out.println(coinFlips);
+}
 ```
 
-or
+![](img/coinflip.png)
 
+- Local variables and parameters live on the **call stack**.
+- Objects live in a part of dynamic memory called the **heap**.
+
+## Defining a Java Class
+
+- Template/blueprint for describing similar software objects.
+- Define state (fields) and behavior (methods).
+
+```java
+public class ClassName {
+
+  //Field declarations
+
+  //Method declarations
+
+}
 ```
-$ npx @marp-team/marp-cli@latest README.md -o build/README.pdf
+
+## A class to model pet fish
+
+![](img/fish_0.png)
+
+```java
+public class Fish {
+
+    //Field declarations
+    int age;
+    boolean isAggressive;
+    String species;
+
+}
 ```
 
-## As a workflow step
+## Creating a new class instance (i.e. object)
 
-The workflow runs an equivalent step:
-
-```
-- name: Marp Build (README.pdf)
-  uses: docker://marpteam/marp-cli:v1.7.0
-  with:
-    args: README.md -o build/README.pdf
-  env:
-    MARP_USER: root:root
+```java
+public class Fish {
+    int age;
+    boolean isAggressive;
+    String species;
+}
 ```
 
-Note the `args` match the previous slide.
+| Java Expression | Heap (dynamic memory) |
+| --------------- | --------------------- |
+| `new Fish()`    | ![](img/fish_2.png)   |
 
-## Customizing the build
+- Memory is allocated to store a value for each field
+- Fields are initialize with default values based on data type: int 0, boolean
+  false, String null
+- Returns a reference to the new object
 
-Anything in the `build/` folder will be deployed to GitHub Pages.
+## Reference Variable
 
-You can copy extra files or run further processing steps using other tools.
+A **reference variable**:
 
-## Learn more about Marp
+- Is declared with a reference data type (such as class **Fish**).
+- Stores an object reference or `null`.
 
-This is a good time to learn more about Marp. Here's some resources:
+```java
+Fish goldie = new Fish();
+Fish jaws = new Fish();
+```
 
-- [CommonMark](https://commonmark.org/)
-- [Cheat Sheet](https://commonmark.org/help/)
-- [Themes](https://github.com/marp-team/marp-core/tree/master/themes)
-- [CSS Themes](https://marpit.marp.app/theme-css)
-- [Directives](https://marpit.marp.app/directives)
-- [VS Code plugin](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+![](img/fish_3.png)
 
-## Example Sites
+## Accessing an object's field
 
-Known sites using this action are:
+Suppose we'd like to update both fish as shown:
 
-- [University of Illinois at Urbana-Champaign's CS 199 Even More Practice](https://cs199emp.netlify.app/)
-  [(code)](https://github.com/harsh183/emp-125)
-- [Exploring agent based models](https://roiarthurb.github.io/Talk-UMMISCO_06-07-2020/)
-  [(code)](https://github.com/RoiArthurB/Talk-UMMISCO_06-07-2020)
+![](img/fish_4.png)
 
-Send a [pull request](https://github.com/ralexander-phi/marp-to-pages) to get
-your site added.
+- Each fish instance has it's own variable named **age**.
+- **Dot notation** is used to access a field through a reference.
 
-## Publish your slides
+`objectReference.fieldName`
 
-When you are ready to share your presentation, commit or merge to `main` and
-your content on GitHub Pages will automatically update.
+```java
+goldie.age = 15;
+goldie.species = "Goldfish";
 
-# 🎉
+jaws.age = 8;
+jaws.species= "Red Tail Shark";
+jaws.isAggressive = true;
+```
 
-<!--
-_class:
- - lead
- - invert
--->
+[pythontutor.com visualization](https://pythontutor.com/render.html#code=public%20class%20Fish%20%7B%0A%0A%20%20%20%20//Field%20declarations%0A%20%20%20%20int%20age%3B%0A%20%20%20%20boolean%20isAggressive%3B%0A%20%20%20%20String%20species%3B%0A%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%0A%20%20%20%20%20%20%20%20//%20Instantiate%202%20Fish%20objects%0A%20%20%20%20%20%20%20%20//%20Each%20variable%20stores%20an%20object%20reference%0A%20%20%20%20%20%20%20%20Fish%20goldie%20%3D%20new%20Fish%28%29%3B%0A%20%20%20%20%20%20%20%20Fish%20jaws%20%3D%20new%20Fish%28%29%3B%0A%0A%20%20%20%20%20%20%20%20//Update%20object%20state%20%28fields%29%0A%20%20%20%20%20%20%20%20goldie.age%20%3D%2015%3B%0A%20%20%20%20%20%20%20%20goldie.species%20%3D%20%22Goldfish%22%3B%0A%0A%20%20%20%20%20%20%20%20jaws.age%20%3D%208%3B%0A%20%20%20%20%20%20%20%20jaws.species%3D%20%22Red%20Tail%20Shark%22%3B%0A%20%20%20%20%20%20%20%20jaws.isAggressive%20%3D%20true%3B%0A%0A%20%20%20%20%20%20%20%20//Print%20object%20state%0A%20%20%20%20%20%20%20%20System.out.printf%28%22goldie%3A%20%25s%20%25d%20%25b%25n%22,%20goldie.species,%20goldie.age,%20goldie.isAggressive%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22jaws%3A%20%25s%20%25d%20%25b%25n%22,%20jaws.species,%20jaws.age,%20jaws.isAggressive%29%3B%0A%20%20%20%20%7D%0A%7D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false)
 
-### Hooray!
+## NOTE : `String` is a reference data type
+
+The species variable actually stores a reference to a separate **String**
+object.
+
+| String Literal<br> (default view) | String Reference    |
+| --------------------------------- | ------------------- |
+| ![](img/fish_5.png)               | ![](img/fish_1.png) |
+
+## Recall how an assignment statement works
+
+The value of the expression on the right hand side is copied into the variable
+on the left hand side.
+
+![](img/assignment.png)
+
+## CHALLENGE
+
+Consider the following code:
+
+```java
+public class Cat {
+
+    String name;
+    boolean isPurring;
+
+    public static void main(String[] args) {
+        Cat calico = new Cat();
+        Cat tabby = new Cat();
+        Cat favorite = calico;
+
+        tabby.name = "Maru";
+        calico.name= "Chestnut";
+        favorite.isPurring = true;
+
+        System.out.printf("calico: %s %b%n", calico.name, calico.isPurring);
+        System.out.printf("tabby %s %b%n", tabby.name, tabby.isPurring);
+        System.out.printf("favorite: %s %b%n", favorite.name, favorite.isPurring);
+```
+
+- Sketch out the heap and stack frame.
+- What gets printed? Debug to confirm your answer.
+
+![](img/cat_challenge.png)
+
+## `new Cat()` creates an instance
+
+<details>
+<summary>
+
+```java
+Cat calico = new Cat();
+Cat tabby = new Cat();
+```
+
+</summary>
+
+![](img/cat_1.png)
+
+</details>
+
+## Multiple variables can reference the same object
+
+<details>
+<summary>
+
+- Two primitive variables can store the same value.
+- Two reference variables can reference the same object.
+
+```java
+Cat calico = new Cat();
+Cat tabby = new Cat();
+Cat favorite = calico
+```
+
+</summary>
+
+![](img/cat_2.png)
+
+</details>
+
+## Updating object state
+
+<details>
+<summary>
+
+```java
+Cat calico = new Cat();
+Cat tabby = new Cat();
+Cat favorite = calico;
+
+tabby.name = "Maru";
+calico.name= "Chestnut";
+favorite.isPurring = true;
+```
+
+</summary>
+
+![](img/cat_3.png)
+
+</details>
+
+## What get's printed?
+
+```java
+System.out.printf("calico: %s %b%n", calico.name, calico.isPurring);
+System.out.printf("tabby %s %b%n", tabby.name, tabby.isPurring);
+System.out.printf("favorite: %s %b%n", favorite.name, favorite.isPurring);
+```
+
+![](img/cat_3.png)
+
+```text
+calico: Chestnut true
+tabby: Maru false
+favorite: Chestnut true
+```
+
+## CHALLENGE
+
+- Implement a class named `Hamster` with fields to store a name, weight in
+  ounces, and whether they are friendly.
+- Implement a `main` method to instantiate two hamster and update their state as
+  shown.
+  - do not write unnecesary field assignments (consider default initialization).
+- Step through with the debugger to confirm your code is correct.
+
+![](img/hamster.png)
