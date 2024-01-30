@@ -12,26 +12,18 @@ _class:
  - invert
 -->
 
-# Introducing object state and references
-
-Common object misconceptions:
-
-- Variable/Class conflation
-- Class/Object conflation
-- Object/Record conflation
-- ...
-
-My teaching Approach:
+## Some background before I start the lesson...
 
 - Initial lessons use existing classes (String, Arraylist, Random,
-  Swing/JavaFX/Graphics)
+  Swing/Graphics)
   - practice reading APIs
   - practice instantiating objects
   - practice invoking static and instance methods
-- Subsequent lessons on creating new classes
+- Subsequent lesson on creating new classes
   - Delay introduction of constructors and methods
   - Initial emphasize on object state and object references
-  - Use visual debuggers to clarify object concepts
+  - Use visual debuggers to clarify object concepts, avoid common object
+    misconceptions
 
 ## Today's Lesson
 
@@ -44,13 +36,14 @@ Today we'll see how to define a **new** class to model some real world objects.
 
 Objects have state and behavior.
 
-- State represents relevant properties (data).
-- Behavior is the operations that access and modify object state.
+- State represents relevant properties of an object (data)
+- Behavior is the operations that access/modify object state
 
 | Object       | State                                   | Behavior                                        |
 | ------------ | --------------------------------------- | ----------------------------------------------- |
 | Mobile Phone | brand <br> model <br> is on <br> volume | toggle on/off <br> adjust volume <br> send text |
 | Zoom meeting | date <br> time <br> link                | schedule <br> cancel<br>start<br>end            |
+| ArrayList    | items in list                           | add item<br>delete item<br>get list size        |
 
 ## Review: Java Data Types
 
