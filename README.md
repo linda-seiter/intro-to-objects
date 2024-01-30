@@ -1,7 +1,14 @@
-<!--
+---
+marp: true
 theme: default
 auto-scaling: code
--->
+style: |
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+---
 
 ## Some background before I start the lesson...
 
@@ -16,28 +23,17 @@ auto-scaling: code
 
 ---
 
-## Today's Lesson - Defining a new Java class
-
-We've seen how to use existing Java core and utility classes (String, ArrayList,
-etc.) to solve some interesting problems.
-
-Today we'll see how to define a **new** class to model some real world objects.
-
----
-
-## Review
-
-Objects have state (properties/attributes) and behavior (operations that
-access/modify state)
+## Review : Java is an Object-Oriented Language
 
 | Object       | State                                   | Behavior                                        |
 | ------------ | --------------------------------------- | ----------------------------------------------- |
 | Mobile Phone | brand <br> model <br> is on <br> volume | toggle on/off <br> adjust volume <br> send text |
-| Zoom meeting | date <br> time <br> link                | schedule <br> cancel<br>start<br>end            |
+| Random       | seed                                    | nextInt<br>nextBoolean, ...                     |
+| ArrayList    | list elements                           | add element<br>delete element<br>get size       |
 
 ---
 
-## Review
+## Review : Java Data Types
 
 | Java Data Types                     |                                                      |                                     |
 | ----------------------------------- | ---------------------------------------------------- | ----------------------------------- |
@@ -49,29 +45,23 @@ access/modify state)
 
 ---
 
-## Review
-
-![bg right 80%](img/coinflip.png)
-
-`Random` and `ArrayList`
+## Review : Primitive and Reference Types
 
 ```java
 public static void main(String[] args) {
-
   ArrayList<String> coinFlips = new ArrayList<String>();
   Random rand = new Random();
   int numHeads = 0;
   boolean heads = rand.nextBoolean();
 
   while (numHeads < 3) {
-      if (heads) {
-          numHeads++;
-          coinFlips.add("Heads");
-      }
-      else {
-          coinFlips.add("Tails");
-      }
-      heads = rand.nextBoolean();
+    if (heads) {
+      numHeads++;
+      coinFlips.add("Heads");
+    } else {
+      coinFlips.add("Tails");
+    }
+    heads = rand.nextBoolean();
   }
 
   System.out.println("Total coin flips:" + coinFlips.size());
@@ -79,15 +69,20 @@ public static void main(String[] args) {
 }
 ```
 
-- Primitive variables (numHeads, heads) store primitive data value.
-- Reference variables (coinFlips, rand) store reference to object in the heap.
+![bg right 80%](img/coinflip.png)
 
 ---
 
-## Defining a Java Class
+## Today's Lesson - Defining a new Java class
 
-- Template/blueprint for describing similar software objects.
-- Define state (fields) and behavior (methods).
+- We've seen how to use existing Java classes (String, ArrayList, etc.) to solve
+  some interesting problems
+
+- Today we'll see how to define **new** classes to model some real world objects
+  such as common types of pets (Fish, Cat, Hamster, Dog)
+- A Java class is a blueprint for describing similar objects
+  - fields describe object state
+  - methods implement object behavior
 
 ```java
 public class ClassName {
@@ -99,9 +94,11 @@ public class ClassName {
 }
 ```
 
+---
+
 ## A class to model pet fish
 
-![](img/fish_0.png)
+![bg right 60%](img/fish_0.png)
 
 ```java
 public class Fish {
@@ -118,6 +115,9 @@ public class Fish {
 
 ## Creating a new class instance (i.e. object)
 
+<div class="columns">
+<div>
+
 ```java
 public class Fish {
     int age;
@@ -126,9 +126,15 @@ public class Fish {
 }
 ```
 
+</div>
+<div>
+
 | Java Expression | Heap (dynamic memory) |
 | --------------- | --------------------- |
 | `new Fish()`    | ![](img/fish_2.png)   |
+
+</div>
+</div>
 
 - Memory is allocated to store a value for each field
 - Fields are initialize with default values based on data type: int 0, boolean
