@@ -45,29 +45,28 @@ access/modify state)
 
 ---
 
-![bg right 40%](img/coinflip.png)
+![bg right](img/coinflip.png)
 
 ```java
-ArrayList<String> coinFlips = new ArrayList<String>();
-Random rand = new Random();
-int numHeads = 0;
-boolean heads = rand.nextBoolean();
-while (numHeads < 3) {
-    if (heads) {
-        numHeads++;
-        coinFlips.add("Heads");
-    }
-    else {
-        coinFlips.add("Tails");
-    }
-    heads = rand.nextBoolean();
+public static void main(String[] args) {
+  ArrayList<String> coinFlips = new ArrayList<String>();
+  Random rand = new Random();
+  int numHeads = 0;
+  boolean heads = rand.nextBoolean();
+  while (numHeads < 3) {
+      if (heads) {
+          numHeads++;
+          coinFlips.add("Heads");
+      }
+      else {
+          coinFlips.add("Tails");
+      }
+      heads = rand.nextBoolean();
+  }
+  System.out.println("Total coin flips:" + coinFlips.size());
+  System.out.println(coinFlips);
 }
-System.out.println("Total coin flips:" + coinFlips.size());
-System.out.println(coinFlips);
 ```
-
-- Local variables and parameters live on the **call stack**.
-- Objects live in a part of dynamic memory called the **heap**.
 
 ---
 
