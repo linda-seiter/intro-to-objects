@@ -25,6 +25,8 @@ Today we'll see how to define a **new** class to model some real world objects.
 
 ---
 
+## Review: Object State & Behavior
+
 Objects have state (properties/attributes) and<br> behavior (operations that
 access/modify state)
 
@@ -34,6 +36,8 @@ access/modify state)
 | Zoom meeting | date <br> time <br> link                | schedule <br> cancel<br>start<br>end            |
 
 ---
+
+## Review: Java Data Types
 
 | Java Data Types                     |                                                      |                                     |
 | ----------------------------------- | ---------------------------------------------------- | ----------------------------------- |
@@ -45,9 +49,9 @@ access/modify state)
 
 ---
 
-## Review: Using `Random` and `ArrayList`
+## Review: `Random` and `ArrayList`
 
-![bg right 70%](img/coinflip.png)
+![bg right 80%](img/coinflip.png)
 
 ```java
 public static void main(String[] args) {
