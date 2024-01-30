@@ -25,9 +25,9 @@ Today we'll see how to define a **new** class to model some real world objects.
 
 ---
 
-## Review: Object State & Behavior
+## Review
 
-Objects have state (properties/attributes) and<br> behavior (operations that
+Objects have state (properties/attributes) and behavior (operations that
 access/modify state)
 
 | Object       | State                                   | Behavior                                        |
@@ -37,7 +37,7 @@ access/modify state)
 
 ---
 
-## Review: Java Data Types
+## Review
 
 | Java Data Types                     |                                                      |                                     |
 | ----------------------------------- | ---------------------------------------------------- | ----------------------------------- |
@@ -49,9 +49,11 @@ access/modify state)
 
 ---
 
-## Review: `Random` and `ArrayList`
+## Review
 
 ![bg right 80%](img/coinflip.png)
+
+`Random` and `ArrayList`
 
 ```java
 public static void main(String[] args) {
@@ -76,6 +78,9 @@ public static void main(String[] args) {
   System.out.println(coinFlips);
 }
 ```
+
+- Primitive variables (numHeads, heads) store primitive data value.
+- Reference variables (coinFlips, rand) store reference to object in the heap.
 
 ---
 
