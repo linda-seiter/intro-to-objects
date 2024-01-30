@@ -1,6 +1,7 @@
 <!--
 theme: default
 paginate: true
+auto-scaling: code
 -->
 
 ## Some background before I start the lesson...
@@ -28,8 +29,8 @@ Today we'll see how to define a **new** class to model some real world objects.
 
 ## Review: What is an object?
 
-Objects have state (properties/data) and behavior (operation that access/modify
-state)
+Objects have state (properties/attributes) and behavior (operations that
+access/modify state)
 
 | Object       | State                                   | Behavior                                        |
 | ------------ | --------------------------------------- | ----------------------------------------------- |
