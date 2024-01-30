@@ -1,13 +1,6 @@
 ---
 marp: true
 theme: default
-auto-scaling: code
-style: |
-  .columns {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
 ---
 
 ## Some background before I start the lesson...
@@ -25,7 +18,7 @@ style: |
 
 ## Review : Java is an Object-Oriented Language
 
-| Object       | State                                   | Behavior                                        |
+| Object       | State <br>(properties)                  | Behavior <br> (access & modify state)           |
 | ------------ | --------------------------------------- | ----------------------------------------------- |
 | Mobile Phone | brand <br> model <br> is on <br> volume | toggle on/off <br> adjust volume <br> send text |
 | Random       | seed                                    | nextInt<br>nextBoolean, ...                     |
@@ -45,7 +38,7 @@ style: |
 
 ---
 
-## Review : Primitive and Reference Types
+## Review : Java Data Types
 
 ```java
 public static void main(String[] args) {
@@ -69,7 +62,7 @@ public static void main(String[] args) {
 }
 ```
 
-![bg right 80%](img/coinflip.png)
+![bg right 90%](img/coinflip.png)
 
 ---
 
@@ -115,8 +108,9 @@ public class Fish {
 
 ## Creating a new class instance (i.e. object)
 
-<div class="columns">
-<div>
+<table>
+<tr>
+<td>
 
 ```java
 public class Fish {
@@ -126,20 +120,26 @@ public class Fish {
 }
 ```
 
-</div>
-<div>
+</td>
+<td>
 
-| Java Expression | Heap (dynamic memory) |
-| --------------- | --------------------- |
-| `new Fish()`    | ![](img/fish_2.png)   |
+blah
 
-</div>
-</div>
+</td>
+</tr>
+</table>
 
-- Memory is allocated to store a value for each field
-- Fields are initialize with default values based on data type: int 0, boolean
-  false, String null
-- Returns a reference to the new object
+---
+
+## Creating a new class instance (i.e. object)
+
+```java
+
+```
+
+| Java Expression | Heap (dynamic memory) |                                                                                                                                                  |
+| --------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `new Fish()`    | ![](img/fish_2.png)   | 1. Memory is allocated to store fields<br>2. Fields are initialize with default<br> values based on data type<br>3. Object reference is returned |
 
 ---
 
