@@ -35,7 +35,7 @@ etc.) to solve some interesting problems.</p>
 <p>Today we'll see how to define a <strong>new</strong> class to model some real world objects.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-theme="default" style="--theme:default;">
-<p>Objects have state (properties/attributes) and behavior (operations that<br />
+<p>Objects have state (properties/attributes) and<br /> behavior (operations that<br />
 access/modify state)</p>
 <table>
 <thead>
@@ -56,19 +56,10 @@ access/modify state)</p>
 <td>date <br /> time <br /> link</td>
 <td>schedule <br /> cancel<br />start<br />end</td>
 </tr>
-<tr>
-<td>ArrayList</td>
-<td>items in list</td>
-<td>add item<br />delete item<br />get list size</td>
-</tr>
 </tbody>
 </table>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-theme="default" style="--theme:default;">
-<ul>
-<li>Primitive types are predefined in Java.</li>
-<li>Reference types can be defined by the programmer.</li>
-</ul>
 <table>
 <thead>
 <tr>
@@ -90,9 +81,12 @@ access/modify state)</p>
 </tr>
 </tbody>
 </table>
+<ul>
+<li>Primitive types are predefined in Java.</li>
+<li>Reference types can be defined by the programmer.</li>
+</ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-theme="default" style="--theme:default;">
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-java">ArrayList&lt;String&gt; coinFlips = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;String&gt;();
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-theme="default" style="--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/coinflip.png&quot;);background-size:40%;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="5" data-theme="default" style="--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right"><pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-java">ArrayList&lt;String&gt; coinFlips = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;String&gt;();
 <span class="hljs-type">Random</span> <span class="hljs-variable">rand</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Random</span>();
 <span class="hljs-type">int</span> <span class="hljs-variable">numHeads</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
 <span class="hljs-type">boolean</span> <span class="hljs-variable">heads</span> <span class="hljs-operator">=</span> rand.nextBoolean();
@@ -109,13 +103,12 @@ access/modify state)</p>
 System.out.println(<span class="hljs-string">&quot;Total coin flips:&quot;</span> + coinFlips.size());
 System.out.println(coinFlips);
 </code></pre>
-<p><img src="img/coinflip.png" alt="" /></p>
 <ul>
 <li>Local variables and parameters live on the <strong>call stack</strong>.</li>
 <li>Objects live in a part of dynamic memory called the <strong>heap</strong>.</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-theme="default" style="--theme:default;">
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-theme="default" style="" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-theme="default" style="--theme:default;">
 <h2 id="defining-a-java-class">Defining a Java Class</h2>
 <ul>
 <li>Template/blueprint for describing similar software objects.</li>
