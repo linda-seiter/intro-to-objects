@@ -19,13 +19,12 @@ _class:
   - practice reading APIs
   - practice instantiating objects
   - practice invoking static and instance methods
-- Subsequent lesson on creating new classes
+- Subsequent lesson on defining a new Java class
   - Delay introduction of constructors and methods
   - Initial emphasize on object state and object references
-  - Use visual debuggers to clarify object concepts, avoid common object
-    misconceptions
+  - Use visual debuggers to clarify object concepts, avoid common misconceptions
 
-## Today's Lesson
+## Today's Lesson - Defining a new Java class
 
 We've seen how to use existing Java core and utility classes (String, ArrayList,
 etc.) to solve some interesting problems.
@@ -34,10 +33,8 @@ Today we'll see how to define a **new** class to model some real world objects.
 
 ## Review: What is an object?
 
-Objects have state and behavior.
-
-- State represents relevant properties of an object (data)
-- Behavior is the operations that access/modify object state
+Objects have state (properties/data) and behavior (operation that access/modify
+state)
 
 | Object       | State                                   | Behavior                                        |
 | ------------ | --------------------------------------- | ----------------------------------------------- |
