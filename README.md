@@ -22,7 +22,9 @@ paginate: true
 We've seen how to use existing Java core and utility classes (String, ArrayList,
 etc.) to solve some interesting problems.
 
-## Today we'll see how to define a **new** class to model some real world objects.
+Today we'll see how to define a **new** class to model some real world objects.
+
+---
 
 ## Review: What is an object?
 
@@ -109,6 +111,8 @@ public class Fish {
 }
 ```
 
+---
+
 ## Creating a new class instance (i.e. object)
 
 ```java
@@ -128,6 +132,8 @@ public class Fish {
   false, String null
 - Returns a reference to the new object
 
+---
+
 ## Reference Variable
 
 A **reference variable**:
@@ -141,6 +147,8 @@ Fish jaws = new Fish();
 ```
 
 ![](img/fish_3.png)
+
+---
 
 ## Accessing an object's field
 
@@ -164,6 +172,8 @@ jaws.isAggressive = true;
 
 [pythontutor.com visualization](https://pythontutor.com/render.html#code=public%20class%20Fish%20%7B%0A%0A%20%20%20%20//Field%20declarations%0A%20%20%20%20int%20age%3B%0A%20%20%20%20boolean%20isAggressive%3B%0A%20%20%20%20String%20species%3B%0A%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%0A%20%20%20%20%20%20%20%20//%20Instantiate%202%20Fish%20objects%0A%20%20%20%20%20%20%20%20//%20Each%20variable%20stores%20an%20object%20reference%0A%20%20%20%20%20%20%20%20Fish%20goldie%20%3D%20new%20Fish%28%29%3B%0A%20%20%20%20%20%20%20%20Fish%20jaws%20%3D%20new%20Fish%28%29%3B%0A%0A%20%20%20%20%20%20%20%20//Update%20object%20state%20%28fields%29%0A%20%20%20%20%20%20%20%20goldie.age%20%3D%2015%3B%0A%20%20%20%20%20%20%20%20goldie.species%20%3D%20%22Goldfish%22%3B%0A%0A%20%20%20%20%20%20%20%20jaws.age%20%3D%208%3B%0A%20%20%20%20%20%20%20%20jaws.species%3D%20%22Red%20Tail%20Shark%22%3B%0A%20%20%20%20%20%20%20%20jaws.isAggressive%20%3D%20true%3B%0A%0A%20%20%20%20%20%20%20%20//Print%20object%20state%0A%20%20%20%20%20%20%20%20System.out.printf%28%22goldie%3A%20%25s%20%25d%20%25b%25n%22,%20goldie.species,%20goldie.age,%20goldie.isAggressive%29%3B%0A%20%20%20%20%20%20%20%20System.out.printf%28%22jaws%3A%20%25s%20%25d%20%25b%25n%22,%20jaws.species,%20jaws.age,%20jaws.isAggressive%29%3B%0A%20%20%20%20%7D%0A%7D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false)
 
+---
+
 ## NOTE : `String` is a reference data type
 
 The species variable actually stores a reference to a separate **String**
@@ -173,12 +183,16 @@ object.
 | --------------------------------- | ------------------- |
 | ![](img/fish_5.png)               | ![](img/fish_1.png) |
 
+---
+
 ## Recall how an assignment statement works
 
 The value of the expression on the right hand side is copied into the variable
 on the left hand side.
 
 ![](img/assignment.png)
+
+---
 
 ## CHALLENGE
 
@@ -209,6 +223,8 @@ public class Cat {
 
 ![](img/cat_challenge.png)
 
+---
+
 ## `new Cat()` creates an instance
 
 <details>
@@ -224,6 +240,8 @@ Cat tabby = new Cat();
 ![](img/cat_1.png)
 
 </details>
+
+---
 
 ## Multiple variables can reference the same object
 
@@ -244,6 +262,8 @@ Cat favorite = calico
 ![](img/cat_2.png)
 
 </details>
+
+---
 
 ## Updating object state
 
@@ -266,6 +286,8 @@ favorite.isPurring = true;
 
 </details>
 
+---
+
 ## What get's printed?
 
 ```java
@@ -281,6 +303,8 @@ calico: Chestnut true
 tabby: Maru false
 favorite: Chestnut true
 ```
+
+---
 
 ## CHALLENGE
 
