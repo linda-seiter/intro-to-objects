@@ -24,12 +24,16 @@ _class:
   - Initial emphasize on object state and object references
   - Use visual debuggers to clarify object concepts, avoid common misconceptions
 
+---
+
 ## Today's Lesson - Defining a new Java class
 
 We've seen how to use existing Java core and utility classes (String, ArrayList,
 etc.) to solve some interesting problems.
 
 Today we'll see how to define a **new** class to model some real world objects.
+
+---
 
 ## Review: What is an object?
 
@@ -42,6 +46,8 @@ state)
 | Zoom meeting | date <br> time <br> link                | schedule <br> cancel<br>start<br>end            |
 | ArrayList    | items in list                           | add item<br>delete item<br>get list size        |
 
+---
+
 ## Review: Java Data Types
 
 - Primitive types are predefined in Java.
@@ -51,6 +57,8 @@ state)
 | ------------------------------- | ---------------------------------------------------- | ----------------------------------- |
 | Primitive Types                 | byte, short, int, long, float, double, boolean, char | Variable stores a primitive value   |
 | Reference Types (non-primitive) | String, ArrayList, Random, JButton, JFrame, ...      | Variable stores an object reference |
+
+---
 
 ## Review: Storing `Random` Coin Flips in an `ArrayList`
 
@@ -79,6 +87,8 @@ public static void main(String[] args) {
 
 - Local variables and parameters live on the **call stack**.
 - Objects live in a part of dynamic memory called the **heap**.
+
+---
 
 ## Defining a Java Class
 
