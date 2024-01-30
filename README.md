@@ -1,20 +1,18 @@
 <!--
 theme: default
-paginate: true
 auto-scaling: code
 -->
 
 ## Some background before I start the lesson...
 
-- Initial lessons use existing classes (String, Arraylist, Random,
-  Swing/Graphics)
+- Initial lessons use existing classes (String, Arraylist, Random)
   - practice reading APIs
   - practice instantiating objects
   - practice invoking static and instance methods
 - Subsequent lesson on defining a new Java class
   - Delay introduction of constructors and methods
   - Initial emphasize on object state and object references
-  - Use visual debuggers to clarify object concepts, avoid common misconceptions
+  - Visual debugger to clarify object concepts, avoid common misconceptions
 
 ---
 
@@ -27,8 +25,6 @@ Today we'll see how to define a **new** class to model some real world objects.
 
 ---
 
-## Review: What is an object?
-
 Objects have state (properties/attributes) and behavior (operations that
 access/modify state)
 
@@ -40,8 +36,6 @@ access/modify state)
 
 ---
 
-## Review: Java Data Types
-
 - Primitive types are predefined in Java.
 - Reference types can be defined by the programmer.
 
@@ -52,27 +46,23 @@ access/modify state)
 
 ---
 
-## Review: Storing `Random` Coin Flips in an `ArrayList`
-
 ```java
-public static void main(String[] args) {
-  ArrayList<String> coinFlips = new ArrayList<String>();
-  Random rand = new Random();
-  int numHeads = 0;
-  boolean heads = rand.nextBoolean();
-  while (numHeads < 3) {
-      if (heads) {
-          numHeads++;
-          coinFlips.add("Heads");
-      }
-      else {
-          coinFlips.add("Tails");
-      }
-      heads = rand.nextBoolean();
-  }
-  System.out.println("Total coin flips:" + coinFlips.size());
-  System.out.println(coinFlips);
+ArrayList<String> coinFlips = new ArrayList<String>();
+Random rand = new Random();
+int numHeads = 0;
+boolean heads = rand.nextBoolean();
+while (numHeads < 3) {
+    if (heads) {
+        numHeads++;
+        coinFlips.add("Heads");
+    }
+    else {
+        coinFlips.add("Tails");
+    }
+    heads = rand.nextBoolean();
 }
+System.out.println("Total coin flips:" + coinFlips.size());
+System.out.println(coinFlips);
 ```
 
 ![](img/coinflip.png)
