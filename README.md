@@ -9,8 +9,8 @@ auto-scaling: code
   - practice reading APIs
   - practice instantiating objects
   - practice invoking static and instance methods
-- Subsequent lesson on defining a new Java class
-  - Delay introduction of constructors and methods
+- Today's Lesson: Defining a new Java class
+  - Delay introduction of constructors
   - Initial emphasize on object state and object references
   - Visual debugger to clarify object concepts, avoid common misconceptions
 
@@ -35,24 +35,28 @@ access/modify state)
 
 ---
 
-| Java Data Types                 |                                                      |                                     |
-| ------------------------------- | ---------------------------------------------------- | ----------------------------------- |
-| Primitive Types                 | byte, short, int, long, float, double, boolean, char | Variable stores a primitive value   |
-| Reference Types (non-primitive) | String, ArrayList, Random, JButton, JFrame, ...      | Variable stores an object reference |
+| Java Data Types                     |                                                      |                                     |
+| ----------------------------------- | ---------------------------------------------------- | ----------------------------------- |
+| Primitive Types                     | byte, short, int, long, float, double, boolean, char | Variable stores a primitive value   |
+| Reference Types<br> (non-primitive) | String, ArrayList, Random, JButton, JFrame, ...      | Variable stores an object reference |
 
 - Primitive types are predefined in Java.
 - Reference types can be defined by the programmer.
 
 ---
 
-![bg right](img/coinflip.png)
+## Review: Using `Random` and `ArrayList`
+
+![bg right 70%](img/coinflip.png)
 
 ```java
 public static void main(String[] args) {
+
   ArrayList<String> coinFlips = new ArrayList<String>();
   Random rand = new Random();
   int numHeads = 0;
   boolean heads = rand.nextBoolean();
+
   while (numHeads < 3) {
       if (heads) {
           numHeads++;
@@ -63,6 +67,7 @@ public static void main(String[] args) {
       }
       heads = rand.nextBoolean();
   }
+
   System.out.println("Total coin flips:" + coinFlips.size());
   System.out.println(coinFlips);
 }
