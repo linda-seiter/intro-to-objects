@@ -25,26 +25,27 @@ Today we'll see how to define a **new** class to model some real world objects.
 
 ---
 
-Objects have state (properties/attributes) and behavior (operations that
+Objects have state (properties/attributes) and<br> behavior (operations that
 access/modify state)
 
 | Object       | State                                   | Behavior                                        |
 | ------------ | --------------------------------------- | ----------------------------------------------- |
 | Mobile Phone | brand <br> model <br> is on <br> volume | toggle on/off <br> adjust volume <br> send text |
 | Zoom meeting | date <br> time <br> link                | schedule <br> cancel<br>start<br>end            |
-| ArrayList    | items in list                           | add item<br>delete item<br>get list size        |
 
 ---
-
-- Primitive types are predefined in Java.
-- Reference types can be defined by the programmer.
 
 | Java Data Types                 |                                                      |                                     |
 | ------------------------------- | ---------------------------------------------------- | ----------------------------------- |
 | Primitive Types                 | byte, short, int, long, float, double, boolean, char | Variable stores a primitive value   |
 | Reference Types (non-primitive) | String, ArrayList, Random, JButton, JFrame, ...      | Variable stores an object reference |
 
+- Primitive types are predefined in Java.
+- Reference types can be defined by the programmer.
+
 ---
+
+![bg right 40%](img/coinflip.png)
 
 ```java
 ArrayList<String> coinFlips = new ArrayList<String>();
@@ -64,8 +65,6 @@ while (numHeads < 3) {
 System.out.println("Total coin flips:" + coinFlips.size());
 System.out.println(coinFlips);
 ```
-
-![](img/coinflip.png)
 
 - Local variables and parameters live on the **call stack**.
 - Objects live in a part of dynamic memory called the **heap**.
