@@ -1,81 +1,50 @@
 ---
 marp: true
 theme: default
+paginate: true
 ---
 
 ## Some background before I start the lesson...
 
-- Initial lessons use existing classes (String, Arraylist, Random)
-  - practice reading APIs
-  - practice instantiating objects
-  - practice invoking static and instance methods
+- Initial lessons use existing classes (String, Arraylist, Random, Swing)
+  - Practice reading APIs
+  - Practice instantiating objects
+  - Practice invoking methods
+  - Using Visual/IDE debugger to introduce concepts of objects, state,
+    references
 - Today's Lesson: Defining a new Java class
-  - Delay introduction of constructors
   - Initial emphasize on object state and object references
-  - Visual debugger to clarify object concepts, avoid common misconceptions
-
----
-
-## Review : Java is an Object-Oriented Language
-
-| Object       | State <br>(properties)                  | Behavior <br> (access & modify state)           |
-| ------------ | --------------------------------------- | ----------------------------------------------- |
-| Mobile Phone | brand <br> model <br> is on <br> volume | toggle on/off <br> adjust volume <br> send text |
-| Random       | seed                                    | nextInt<br>nextBoolean, ...                     |
-| ArrayList    | list elements                           | add element<br>delete element<br>get size       |
-
----
-
-## Review : Java Data Types
-
-| Java Data Types                     |                                                      |                                     |
-| ----------------------------------- | ---------------------------------------------------- | ----------------------------------- |
-| Primitive Types                     | byte, short, int, long, float, double, boolean, char | Variable stores a primitive value   |
-| Reference Types<br> (non-primitive) | String, ArrayList, Random, JButton, JFrame, ...      | Variable stores an object reference |
-
-- Primitive types are predefined in Java.
-- Reference types can be defined by the programmer.
-
----
-
-## Review : Java Data Types
-
-```java
-public static void main(String[] args) {
-  ArrayList<String> coinFlips = new ArrayList<String>();
-  Random rand = new Random();
-  int numHeads = 0;
-  boolean heads = rand.nextBoolean();
-
-  while (numHeads < 3) {
-    if (heads) {
-      numHeads++;
-      coinFlips.add("Heads");
-    } else {
-      coinFlips.add("Tails");
-    }
-    heads = rand.nextBoolean();
-  }
-
-  System.out.println("Total coin flips:" + coinFlips.size());
-  System.out.println(coinFlips);
-}
-```
-
-![bg right 90%](img/coinflip.png)
+  - Visual debugger to clarify object concepts<br> (map static syntax to dynamic
+    runtime model)
+  - Introduce constructors/methods **after** introducing object references
 
 ---
 
 ## Today's Lesson - Defining a new Java class
 
-- We've seen how to use existing Java classes (String, ArrayList, etc.) to solve
-  some interesting problems
+- We've seen how to use existing Java classes (String, ArrayList, Random, etc.)
+  to solve a few interesting problems
+- Today we'll learn how to define **new** classes to model the state and
+  behavior of some real world objects
 
-- Today we'll see how to define **new** classes to model some real world objects
-  such as common types of pets (Fish, Cat, Hamster, Dog)
-- A Java class is a blueprint for describing similar objects
-  - fields describe object state
-  - methods implement object behavior
+---
+
+## Review: Java is an Object-Oriented Language
+
+| Object                      | State <br>(properties)            | Behavior <br> (access & modify state)                |
+| --------------------------- | --------------------------------- | ---------------------------------------------------- |
+| Mobile Phone                | model <br> is on <br> volume, ... | toggle on/off <br> adjust volume <br> send text, ... |
+| Random Number<br> Generator | seed, multiplier,...              | generate random integer,<br>random boolean, ...      |
+| List                        | list elements                     | add element<br>delete element<br>get size, ...       |
+
+---
+
+## Defining a new Java class
+
+A **Class** is a blueprint for describing similar objects
+
+- fields (instance variables) describe object state
+- methods implement object behavior (access and update state)
 
 ```java
 public class ClassName {
@@ -89,7 +58,7 @@ public class ClassName {
 
 ---
 
-## A class to model pet fish
+## Defining a new Java class
 
 ![bg right 60%](img/fish_0.png)
 
@@ -104,13 +73,11 @@ public class Fish {
 }
 ```
 
+An object is an **instance** of a class
+
 ---
 
-## Creating a new class instance (i.e. object)
-
-<table>
-<tr>
-<td>
+## Creating a new `Fish` instance
 
 ```java
 public class Fish {
@@ -120,34 +87,26 @@ public class Fish {
 }
 ```
 
-</td>
-<td>
-
-blah
-
-</td>
-</tr>
-</table>
+| Java Expression | Memory<br> (Heap)   |                                                                                                                                           |
+| --------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `new Fish()`    | ![](img/fish_2.png) | 1. Memory is allocated to store fields<br>2. Fields are initialize with default<br> values based on data type<br>3. Reference is returned |
 
 ---
 
-## Creating a new class instance (i.e. object)
+## Quick Review: Variable declarations must specify data type
 
-```java
+| Java Data Types                     | Examples                                             | Variable                                                |
+| ----------------------------------- | ---------------------------------------------------- | ------------------------------------------------------- |
+| Primitive Types                     | byte, short, int, long, float, double, boolean, char | Store primitive value<br>(7, 3.5, true, 'a')            |
+| Reference Types<br> (non-primitive) | String, ArrayList, Random, Fish, ...                 | Store object reference<br> (info about memory location) |
 
-```
-
-| Java Expression | Heap (dynamic memory) |                                                                                                                                                  |
-| --------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `new Fish()`    | ![](img/fish_2.png)   | 1. Memory is allocated to store fields<br>2. Fields are initialize with default<br> values based on data type<br>3. Object reference is returned |
+A class is one kind of reference type (there are others as well)
 
 ---
 
 ## Reference Variable
 
-A **reference variable**:
-
-- Is declared with a reference data type (such as class **Fish**).
+- Declared with a reference data type (such as class **Fish**).
 - Stores an object reference or `null`.
 
 ```java
@@ -155,20 +114,17 @@ Fish goldie = new Fish();
 Fish jaws = new Fish();
 ```
 
-![](img/fish_3.png)
+![bg right 90%](img/fish_3.png)
 
 ---
 
-## Accessing an object's field
+## Updating object state
 
-Suppose we'd like to update both fish as shown:
-
-![](img/fish_4.png)
+![bg right 90%](img/fish_4.png)
 
 - Each fish instance has it's own variable named **age**.
 - **Dot notation** is used to access a field through a reference.
-
-`objectReference.fieldName`
+  `objectReference.fieldName`
 
 ```java
 goldie.age = 15;
@@ -185,8 +141,7 @@ jaws.isAggressive = true;
 
 ## NOTE : `String` is a reference data type
 
-The species variable actually stores a reference to a separate **String**
-object.
+`species` actually stores an object reference
 
 | String Literal<br> (default view) | String Reference    |
 | --------------------------------- | ------------------- |
@@ -196,88 +151,69 @@ object.
 
 ## Recall how an assignment statement works
 
-The value of the expression on the right hand side is copied into the variable
-on the left hand side.
+1. evaluate expression on<br> right hand side
+2. copy value into variable on <br>left hand side
 
-![](img/assignment.png)
+![bg right 90%](img/assignment.png)
 
 ---
 
 ## CHALLENGE
 
-Consider the following code:
-
 ```java
 public class Cat {
 
-    String name;
-    boolean isPurring;
+  String name;
+  boolean isPurring;
 
-    public static void main(String[] args) {
-        Cat calico = new Cat();
-        Cat tabby = new Cat();
-        Cat favorite = calico;
+  public static void main(String[] args) {
+    Cat calico = new Cat();
+    Cat tabby = new Cat();
+    Cat favorite = calico;
 
-        tabby.name = "Maru";
-        calico.name= "Chestnut";
-        favorite.isPurring = true;
+    tabby.name = "Maru";
+    calico.name= "Chestnut";
+    favorite.isPurring = true;
 
-        System.out.printf("calico: %s %b%n", calico.name, calico.isPurring);
-        System.out.printf("tabby %s %b%n", tabby.name, tabby.isPurring);
-        System.out.printf("favorite: %s %b%n", favorite.name, favorite.isPurring);
+    System.out.println(calico.name + "," + calico.isPurring);
+    System.out.println(tabby.name + "," + tabby.isPurring);
+    System.out.println(favorite.name + "," + favorite.isPurring);
+  }
+}
 ```
 
-- Sketch out the heap and stack frame.
-- What gets printed? Debug to confirm your answer.
-
-![](img/cat_challenge.png)
+![bg right 80%](img/cat_challenge.png)
 
 ---
-
-## `new Cat()` creates an instance
-
-<details>
-<summary>
 
 ```java
 Cat calico = new Cat();
 Cat tabby = new Cat();
 ```
 
-</summary>
+- `new Cat()` creates `Cat` instance with fields initialized to default values
+- `calico` and `tabby` reference the new objects
 
-![](img/cat_1.png)
-
-</details>
+![bg right 90%](img/cat_1.png)
 
 ---
 
 ## Multiple variables can reference the same object
 
-<details>
-<summary>
-
-- Two primitive variables can store the same value.
-- Two reference variables can reference the same object.
-
 ```java
 Cat calico = new Cat();
 Cat tabby = new Cat();
-Cat favorite = calico
+Cat favorite = calico;
 ```
 
-</summary>
+- Two primitive variables can store the same value.
+- Two reference variables can store the same object reference.
 
-![](img/cat_2.png)
-
-</details>
+![bg right 90%](img/cat_2.png)
 
 ---
 
 ## Updating object state
-
-<details>
-<summary>
 
 ```java
 Cat calico = new Cat();
@@ -289,39 +225,79 @@ calico.name= "Chestnut";
 favorite.isPurring = true;
 ```
 
-</summary>
-
-![](img/cat_3.png)
-
-</details>
+![bg right 90%](img/cat_3.png)
 
 ---
 
 ## What get's printed?
 
 ```java
-System.out.printf("calico: %s %b%n", calico.name, calico.isPurring);
-System.out.printf("tabby %s %b%n", tabby.name, tabby.isPurring);
-System.out.printf("favorite: %s %b%n", favorite.name, favorite.isPurring);
+System.out.println(calico.name + "," + calico.isPurring);
+System.out.println(tabby.name + "," + tabby.isPurring);
+System.out.println(favorite.name + "," + favorite.isPurring);
 ```
 
-![](img/cat_3.png)
+![bg right 90%](img/cat_3.png)
 
 ```text
-calico: Chestnut true
-tabby: Maru false
-favorite: Chestnut true
+Chestnut,true
+Maru,false
+Chestnut,true
 ```
 
 ---
 
 ## CHALLENGE
 
-- Implement a class named `Hamster` with fields to store a name, weight in
-  ounces, and whether they are friendly.
+- Implement a class named `Hamster` with fields to store name, weight in ounces,
+  and whether they are friendly.
 - Implement a `main` method to instantiate two hamster and update their state as
   shown.
-  - do not write unnecesary field assignments (consider default initialization).
-- Step through with the debugger to confirm your code is correct.
 
-![](img/hamster.png)
+![bg right 90%](img/hamster_0.png)
+
+---
+
+CHALLENGE:
+
+- Edit the code to evolve the object state as shown in the diagram.
+- Do not modify state using the variables `hamster1` or `hamster2`
+- Use the variable `hamster3` to modify the `name` and `ounces`.
+
+![bg right 90%](img/hamster_1.png)
+
+---
+
+## Solution
+
+```java
+public class Hamster {
+
+    String name;
+    float ounces;
+    boolean isFriendly;
+
+    public static void main(String[] args) {
+        Hamster hamster1 = new Hamster();
+        Hamster hamster2 = new Hamster();
+
+        hamster1.name = "Hammie";
+        hamster1.ounces = 0.9f;
+        hamster1.isFriendly = true;
+
+        hamster2.name = "Nibbles";
+        hamster2.ounces = Ωå5.2f;
+
+        Hamster hamster3 = hamster1;
+        hamster3.name = "Sweet Hammie";
+        hamster3.ounces = 1.2f;
+
+    }
+}
+```
+
+---
+
+## Methods - Implementing Object Behavior
+
+---
