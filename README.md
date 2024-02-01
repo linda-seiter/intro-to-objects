@@ -347,6 +347,8 @@ How does the treat method know which Dog's tail should wag or not?
 
 We'll use the debugger to step through the code.
 
+[pythontutor.com visualization](https://pythontutor.com/render.html#code=public%20class%20Dog%20%7B%0A%0A%20%20%20%20//Field%20declarations%0A%20%20%20%20private%20String%20name%3B%0A%20%20%20%20private%20boolean%20isWaggingTail,%20likesBaths%3B%0A%0A%20%20%20%20//Method%20declarations%0A%20%20%20%20public%20void%20scold%28%29%20%7Bthis.isWaggingTail%20%3D%20false%3B%7D%0A%20%20%20%20public%20void%20treat%28int%20quantity%29%20%7B%20this.isWaggingTail%20%3D%20quantity%20%3E%202%3B%20%7D%0A%20%20%20%20public%20void%20bathe%28%29%20%7Bthis.isWaggingTail%20%3D%20this.likesBaths%3B%7D%0A%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%0A%20%20%20%20%20%20%20%20Dog%20dog1%20%3D%20new%20Dog%28%29%3B%0A%20%20%20%20%20%20%20%20Dog%20dog2%20%3D%20new%20Dog%28%29%3B%0A%0A%20%20%20%20%20%20%20%20dog1.name%20%3D%20%22Bella%22%3B%0A%20%20%20%20%20%20%20%20dog2.name%20%3D%20%22Pepper%22%3B%0A%20%20%20%20%20%20%20%20dog2.likesBaths%20%3D%20true%3B%0A%0A%20%20%20%20%20%20%20%20//Call%20instance%20methods%0A%20%20%20%20%20%20%20%20dog1.treat%285%29%3B%20//wagging%20true%0A%20%20%20%20%20%20%20%20dog1.bathe%28%29%3B%20%20//wagging%20false%0A%20%20%20%20%20%20%20%20dog2.bathe%28%29%3B%20%20//wagging%20true%0A%20%20%20%20%20%20%20%20dog2.treat%281%29%3B%20//wagging%20false%0A%20%20%20%20%20%20%20%20dog2.treat%283%29%3B%20//wagging%20true%0A%20%20%20%20%20%20%20%20dog2.scold%28%29%3B%20//wagging%20false%0A%20%20%20%20%7D%0A%7D&cumulative=false&curInstr=9&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false)
+
 ---
 
 ## dog1.treat(5)
@@ -358,7 +360,7 @@ We'll use the debugger to step through the code.
 
 ```
 
-![](img/this_1.png)
+![](img/dog_1.png)
 
 ---
 
@@ -370,4 +372,4 @@ We'll use the debugger to step through the code.
     }
 ```
 
-![](img/this_2.png)
+![](img/dog_2.png)
